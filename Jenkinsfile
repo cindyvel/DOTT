@@ -14,7 +14,7 @@ pipeline {
 				}
 			} 
 
-			stage('Three') {
+			stage('Test') {
 				steps {
 					sh 'echo "Step Three and a half"'
 				}
