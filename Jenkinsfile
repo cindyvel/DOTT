@@ -10,7 +10,7 @@ pipeline {
 
 			stage('Build') {
 				steps {
-					sh 'echo "Sonar Qube"'
+					sh 'echo "Sonar Qube and analysis"'
 				}
 			} 
 
