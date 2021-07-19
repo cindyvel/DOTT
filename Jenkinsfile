@@ -12,7 +12,7 @@ pipeline {
 
 			stage('Two') {
 				steps {
-					sh 'echo "Step Two"'
+					sh 'echo "Step Two: Sonarqube"'
 				}
 			} 
 
