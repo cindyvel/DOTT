@@ -3,19 +3,19 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
 	agent any
 		stages {
-			stage('One') {
+			stage('build & SonarQube analysis') {
 				steps {
-					sh 'echo "Step One"'
+					withSonarQubeEnv('My SonarQube Server') {
+					sh 'mvn clean package sonar:sonar'
+					}
 				}
 			}
-
-
-			stage('Build') {
+			stage('Quality Gate') {
 				steps {
-					sh 'echo "Sonar Qube and code analysis"'
+					timeout(time: 1, unit: 'HOURS') {
+						waitForQualityGate abortPipeline: true
 				}
-			} 
-
+			}
 			stage('Test') {
 				steps {
 					sh 'echo "Step Three and a half"'
