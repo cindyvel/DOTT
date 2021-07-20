@@ -1,8 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 
-pipeline {
-	agent any
-		stages {
+node {
+	
 			stage('One') {
 				steps {
 					sh 'echo "Step One and a half. asjd"'
@@ -21,5 +20,3 @@ pipeline {
 					sh 'echo "Step Three"'
 				}
 			}
-		}
-}
