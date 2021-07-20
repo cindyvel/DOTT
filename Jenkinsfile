@@ -14,9 +14,9 @@ node {
 					sh 'echo "Step Two: Sonarqube"'
 				}
 			} 
-
 			stage('Three') {
 				steps {
 					sh 'echo "Step Three"'
 				}
 			}
+}
