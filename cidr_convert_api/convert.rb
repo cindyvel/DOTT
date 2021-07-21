@@ -14,4 +14,4 @@ class IpValidate
     true
   end
 end
-© 2021 GitHub, Inc.
+
