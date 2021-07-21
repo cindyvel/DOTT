@@ -2,7 +2,7 @@ FROM ruby:2-alpine
 
 WORKDIR /app
 
-COPY Gemfile .
+COPY Gemfile ./cidr_convert_api
 RUN gem install bundler \
     && bundle install
 
