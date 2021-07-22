@@ -41,5 +41,4 @@ node {
     {
         sh "docker run -d --name ruby -p 80:8081 cindyvel/ruby"
     }
-    }
 }
