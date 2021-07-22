@@ -18,6 +18,7 @@ node {
             -Dsonar.host.url=http://ec2-18-224-51-57.us-east-2.compute.amazonaws.com:9000 \
             -Dsonar.login=61e3cece89ee2d028b1cd7e87076d393c13c5f49 """
     }
+    }
     stage('Quality Gate') 
     {
         // waitForQualityGate abortPipeline: true
