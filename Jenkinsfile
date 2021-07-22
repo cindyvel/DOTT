@@ -8,7 +8,7 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cindyvel/DOTT.git']]])
     }
     stage('pre build')
-    {  withRvm('ruby-2.3.1') {
+    {  withRvm('ruby-2.3.1') 
         sh 'ruby --version'
         sh 'gem install rake'
         }
@@ -36,7 +36,6 @@ node {
         docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
         sh "ruby --version"
         sh 'ruby /app/tests.rb'
-    }
     }
     stage('Build')
     {
