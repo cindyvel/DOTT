@@ -8,8 +8,9 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cindyvel/DOTT.git']]])
     }
     stage('pre build')
-    {   echo "Executing Pre-Build steps ..."
-        sh(returnStdout: true, script: "#!/bin/bash -xle && source ~/.rvm/scripts/rvm && rvm use 2.3.1 && cd ${WORKSPACE}/${env.PROJECT_PATH} && gem install xcpretty && set -o pipefail && xcpretty")
+    {  withRvm('ruby-2.3.1') {
+        sh 'ruby --version'
+        sh 'gem install rake'
         }
     stage('Code Analysis')
     {
