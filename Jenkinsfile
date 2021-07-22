@@ -28,6 +28,7 @@ node {
     {
         sh "echo '${workspace}'"
         docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
+        sh "ruby --version"
         sh 'ruby /app/tests.rb'
     }
     }
