@@ -11,7 +11,7 @@ node {
     {  withRvm('ruby-2.3.1') 
         sh 'ruby --version'
         sh 'gem install rake'
-        }
+    }
     stage('Code Analysis')
     {
         sh "ls -la"
@@ -36,6 +36,7 @@ node {
         docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
         sh "ruby --version"
         sh 'ruby /app/tests.rb'
+    }
     }
     stage('Build')
     {
