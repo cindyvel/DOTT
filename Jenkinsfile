@@ -16,7 +16,8 @@ node {
             -Dsonar.exclusions=**/README.md \
             -Dsonar.sources=./cidr_convert_api \
             -Dsonar.host.url=http://ec2-18-220-157-116.us-east-2.compute.amazonaws.com:9000 \
-            -Dsonar.login=5adb59f64cfae00be204b82410e09674489d1fab """
+            -Dsonar.user=admin \
+            -Dsonar.password=admin """
             }
     stage('Quality Gate') {
         // waitForQualityGate abortPipeline: true
