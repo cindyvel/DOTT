@@ -25,23 +25,23 @@ node {
         // waitForQualityGate abortPipeline: true
         sh "echo 'idjfoadfgdew djfvsdfgvsdfhbj'"
     }
-    stage('Test')
-    {
-        sh "echo '${workspace}'"
-        docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
-        sh "ruby --version"
-        sh 'ruby /app/tests.rb'
-    }
-    }
+    //stage('Test')
+    //{
+      //  sh "echo '${workspace}'"
+       // docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
+        //sh "ruby --version"
+        //sh 'ruby /app/tests.rb'
+   // }
+    //}
     stage('Build')
     {
         sh "docker image build . -t cindyvel/ruby"
     }
-    stage('Remove previous container')
-    {
-       sh """docker container stop ruby 
-            docker container rm ruby"""
-    }
+  //  stage('Remove previous container')
+    //{
+      // sh """docker container stop ruby 
+       //     docker container rm ruby"""
+   // }
      stage('Deploy new container')
     {
         sh "docker run -d --name ruby -p 80:8081 cindyvel/ruby"
