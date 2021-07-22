@@ -24,6 +24,7 @@ node {
         sh "echo 'idjfoadfgdew djfvsdfgvsdfhbj'"
     }
     stage('Test')
+        {
         ruby ./cidr_convert_api/tests.br
     {
         sh "docker image build . -t cindyvel/ruby"
