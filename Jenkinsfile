@@ -19,7 +19,8 @@ node {
             -Dsonar.login=5adb59f64cfae00be204b82410e09674489d1fab """
             }
     stage('Quality Gate') {
-        waitForQualityGate abortPipeline: true
+        // waitForQualityGate abortPipeline: true
+        sh "echo 'idjfoaew'"
     }
     }
 }
