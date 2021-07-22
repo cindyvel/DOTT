@@ -26,11 +26,11 @@ node {
     {
         sh "docker image build . -t cindyvel/ruby"
     }
-    stage('Remove previous container')
-    {
-        sh """docker container stop ruby 
-              docker container rm ruby"""
-    }
+    // stage('Remove previous container')
+    // {
+    //    sh """docker container stop ruby 
+    //          docker container rm ruby"""
+    // }
      stage('Deploy new container')
     {
         sh "docker run -d --name ruby -p 80:8081 cindyvel/ruby"
