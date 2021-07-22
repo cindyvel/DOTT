@@ -1,17 +1,16 @@
 properties([pipelineTriggers([githubPush()])])
 
-def rvmSh(String rubyVersion, String cmd) {
-    def sourceRvm = 'source ~/.rvm/scripts/rvm'
-    def useRuby = "rvm use --install $rubyVersion"
-    sh "${sourceRvm}; ${useRuby}; $cmd"
-}
 
 node {
-    rvmSh 'ruby --version'
+    
     stage('Checkout SCM') 
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cindyvel/DOTT.git']]])
     }
+    stage('pre build')
+    {   echo "Executing Pre-Build steps ..."
+        sh(returnStdout: true, script: "#!/bin/bash -xle && source ~/.rvm/scripts/rvm && rvm use 2.3.1 && cd ${WORKSPACE}/${env.PROJECT_PATH} && gem install xcpretty && set -o pipefail && xcpretty")
+        }
     stage('Code Analysis')
     {
         sh "ls -la"
