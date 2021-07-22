@@ -9,7 +9,7 @@ node {
     }
     //stage('pre build')
    // {  withRvm('ruby-2.3.1') 
-      //  sh 'ruby --version'
+  //  sh 'ruby --version'
     //    sh 'gem install rake'
   //  }
     stage('Code Analysis')
