@@ -20,7 +20,7 @@ node {
             }
     stage('Quality Gate') {
         // waitForQualityGate abortPipeline: true
-        sh "echo 'idjfoadfgdew'"
+        sh "echo 'idjfoadfgdew djfvsfhbj'"
     }
     stage('Build')
     {
