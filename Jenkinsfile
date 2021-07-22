@@ -26,8 +26,6 @@ node {
     stage('Test')
         {
         ruby ./cidr_convert_api/tests.br
-    {
-        sh "docker image build . -t cindyvel/ruby"
     }
     stage('Build')
     {
@@ -35,8 +33,8 @@ node {
     }
     stage('Remove previous container')
     {
-       sh """docker container stop ruby 
-              docker container rm ruby"""
+      // sh """docker container stop ruby 
+        //      docker container rm ruby"""
     }
      stage('Deploy new container')
     {
