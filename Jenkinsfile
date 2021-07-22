@@ -7,11 +7,11 @@ node {
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cindyvel/DOTT.git']]])
     }
-    stage('pre build')
-    {  withRvm('ruby-2.3.1') 
-        sh 'ruby --version'
-        sh 'gem install rake'
-    }
+    //stage('pre build')
+   // {  withRvm('ruby-2.3.1') 
+      //  sh 'ruby --version'
+    //    sh 'gem install rake'
+  //  }
     stage('Code Analysis')
     {
         sh "ls -la"
