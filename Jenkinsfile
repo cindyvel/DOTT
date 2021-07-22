@@ -22,5 +22,13 @@ node {
         // waitForQualityGate abortPipeline: true
         sh "echo 'idjfoaew'"
     }
+    stage('Build')
+    {
+        sh "docker image build . -t cindyvel/ruby"
+    }
+     stage('Deploy')
+    {
+        sh "docker run -ti -p 80:8081 cindyvel/ruby"
+    }
     }
 }
