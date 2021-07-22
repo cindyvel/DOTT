@@ -23,13 +23,9 @@ node {
         // waitForQualityGate abortPipeline: true
         sh "echo 'idjfoadfgdew djfvsdfgvsdfhbj'"
     }
-    //stage('Test')
-        //{
-      //  ruby ./cidr_convert_api/tests.br
-    //}
     stage('Build')
     {
-        sh "sudo docker image build . -t cindyvel/ruby"
+        sh "docker image build . -t cindyvel/ruby"
     }
     stage('Remove previous container')
     {
