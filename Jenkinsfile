@@ -33,8 +33,8 @@ node {
     }
     stage('Remove previous container')
     {
-      // sh """docker container stop ruby 
-        //      docker container rm ruby"""
+       sh """docker container stop ruby 
+            docker container rm ruby"""
     }
      stage('Deploy new container')
     {
