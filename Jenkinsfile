@@ -2,7 +2,6 @@ properties([pipelineTriggers([githubPush()])])
 
 
 node {
-    
     stage('Checkout SCM') 
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cindyvel/DOTT.git']]])
