@@ -29,7 +29,7 @@ node {
     //}
     stage('Build')
     {
-        sh "docker image build . -t cindyvel/ruby"
+        sh "sudo docker image build . -t cindyvel/ruby"
     }
     stage('Remove previous container')
     {
