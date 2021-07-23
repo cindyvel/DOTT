@@ -8,7 +8,7 @@ node {
     }
     stage('Code Analysis')
     {
-       
+       sh "echo 'pls'"
     withCredentials([string(credentialsId: 'tokensonar', variable: 'Secret')]){ 
         def scannerhome = tool 'Sonar-Scanner';
         withSonarQubeEnv ('sonarqubeserver'){
