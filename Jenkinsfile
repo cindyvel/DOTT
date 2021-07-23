@@ -35,8 +35,8 @@ node {
     {
         sh "docker run -d --name ruby -p 80:8081 cindyvel/ruby"
     }
-    stage('Test')
-    {
-        sh 'tests.rb'
-    }
+   // stage('Test')
+    //{
+   //     sh 'tests.rb'
+    //}
 }
