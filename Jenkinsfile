@@ -39,4 +39,3 @@ node {
         sh 'ruby tests.rb'
     }
 }
-}
