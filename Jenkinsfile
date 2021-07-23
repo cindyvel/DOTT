@@ -9,7 +9,7 @@ node {
     stage('Code Analysis')
     {
         sh "ls -la"
-    
+    withCredentials([string(credentialsId: 'tokensonar', variable: 'Secret')]){ 
         def scannerhome = tool 'Sonar-Scanner';
         withSonarQubeEnv ('sonarqubeserver'){
             sh """${scannerhome}/bin/sonar-scanner \
@@ -17,8 +17,8 @@ node {
             -Dsonar.exclusions=**/README.md \
             -Dsonar.sources=./cidr_convert_api \
             -Dsonar.host.url=http://ec2-18-224-51-57.us-east-2.compute.amazonaws.com:9000/ \
-            -Dsonar.login=3484f1d43b8059683990f0d76ffe6efc3489be6f """
-
+            -Dsonar.login=${Secret} """
+        }
     }
     }       
     
