@@ -18,15 +18,7 @@ node {
             -Dsonar.host.url=http://ec2-18-224-51-57.us-east-2.compute.amazonaws.com:9000/ \
             -Dsonar.login=3484f1d43b8059683990f0d76ffe6efc3489be6f """
     }
-    }
-    stage("Quality Gate"){
-          timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-              }
-          }
-      }        
+    }       
     //stage('Test')
     //{
       //  sh "echo '${workspace}'"
