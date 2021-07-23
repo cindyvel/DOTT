@@ -12,11 +12,11 @@ node {
         def scannerhome = tool 'Sonar-Scanner';
         withSonarQubeEnv ('sonarqubeserver'){
             sh """${scannerhome}/bin/sonar-scanner \
-            -Dsonar.projectKey=Projectdott \
+            -Dsonar.projectKey=ProjectDOTT \
             -Dsonar.exclusions=**/README.md \
             -Dsonar.sources=./cidr_convert_api \
-            -Dsonar.host.url=http://ec2-18-224-51-57.us-east-2.compute.amazonaws.com:9000 \
-            -Dsonar.login=b06381adf2e19db4b18f0272c4214aca65a81d92 """
+            -Dsonar.host.url=http://ec2-18-224-51-57.us-east-2.compute.amazonaws.com:9000/ \
+            -Dsonar.login=4911cea36f072d2795e444035cb22ae0efcdff80 """
     }
     }
     stage('Quality Gate') 
