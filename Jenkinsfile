@@ -19,10 +19,14 @@ node {
             -Dsonar.login=3484f1d43b8059683990f0d76ffe6efc3489be6f """
     }
     }
-    stage('Quality Gate') 
-    {
-        waitForQualityGate abortPipeline: true
-    }
+    stage("Quality Gate"){
+          timeout(time: 1, unit: 'HOURS') {
+              def qg = waitForQualityGate()
+              if (qg.status != 'OK') {
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+          }
+      }        
     //stage('Test')
     //{
       //  sh "echo '${workspace}'"
