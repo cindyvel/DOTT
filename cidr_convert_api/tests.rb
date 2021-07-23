@@ -9,17 +9,17 @@ class TestConvert < Minitest::Test
   end
 
   def test_valid_cidr_to_mask
-    assert_equal '128.0.0.0', @convert.cidr_to_mask('1')
-    assert_equal '255.255.0.0', @convert.cidr_to_mask('16')
-    assert_equal '255.255.248.0', @convert.cidr_to_mask('21')
-    assert_equal '255.255.255.255', @convert.cidr_to_mask('32')
+    assert_equal '80 00 00 00', @convert.cidr_to_mask('1')
+    assert_equal 'FF FF 00 00', @convert.cidr_to_mask('16')
+    assert_equal 'FF FF F8 00', @convert.cidr_to_mask('21')
+    assert_equal 'FF FF FF FF', @convert.cidr_to_mask('32')
   end
 
   def test_valid_mask_to_cidr
-    assert_equal '1', @convert.mask_to_cidr('128.0.0.0')
-    assert_equal '16', @convert.mask_to_cidr('255.255.0.0')
-    assert_equal '21', @convert.mask_to_cidr('255.255.248.0')
-    assert_equal '32', @convert.mask_to_cidr('255.255.255.255')
+    assert_equal '1', @convert.mask_to_cidr('80 00 00 00')
+    assert_equal '16', @convert.mask_to_cidr('FF FF 00 00')
+    assert_equal '21', @convert.mask_to_cidr('FF FF F8 00')
+    assert_equal '32', @convert.mask_to_cidr('FF FF FF FF')
   end
 
   def test_invalid_cidr_to_mask
