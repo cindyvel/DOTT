@@ -19,14 +19,7 @@ node {
             -Dsonar.login=3484f1d43b8059683990f0d76ffe6efc3489be6f """
     }
     }       
-    //stage('Test')
-    //{
-      //  sh "echo '${workspace}'"
-       // docker.image('ruby:3.0.2').withRun('-v ${workspace}/cidr_convert_api/:/app') { c ->
-        //sh "ruby --version"
-        //sh 'ruby /app/tests.rb'
-   // }
-    //}
+    
     stage('Build')
     {
         sh "docker image build . -t cindyvel/ruby"
@@ -40,4 +33,10 @@ node {
     {
         sh "docker run -d --name ruby -p 80:8081 cindyvel/ruby"
     }
+    stage('Test')
+    {
+        sh "ruby --version"
+        sh 'ruby tests.rb'
+    }
+}
 }
